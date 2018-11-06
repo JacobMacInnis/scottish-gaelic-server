@@ -4,7 +4,8 @@
   "description": "Scottish Gaelic Learning App",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js",
+    "test": "cross-env NODE_ENV=test nyc mocha --file test/app.test.js"
   },
   "keywords": [
     "scottish",
@@ -12,6 +13,10 @@
     "learning",
     "language"
   ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JacobMacInnis/scottish-gaelic-server"
+  },
   "author": "Jacob MacInnis",
   "license": "ISC",
   "dependencies": {
