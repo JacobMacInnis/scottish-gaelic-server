@@ -3,8 +3,9 @@
 const express = require('express');
 
 const User = require('../models/user');
-const QuizStat = require('../models/quizStat');
-const cscards = require('./../db/seed/cscards.json');
+const UserStats = require('../models/UserStats');
+// const UserStats = require('../models/Userstats');
+const gaelic = require('./../db/seed/gaelic.json');
 
 const router = express.Router();
 
@@ -119,11 +120,11 @@ router.post('/stats',(req,res,next)=>{
   const {username} = req.body;
   return User.findOne({username})
     .then(user =>{
-      return QuizStat.create({
+      return UserStats.create({
         userId: user._id,
         recurringCorrect: 0,
         totalQuestions:0,
-        questions:cscards,
+        questions:gaelic,
         head:0,
         totalRight:0
       });

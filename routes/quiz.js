@@ -1,7 +1,8 @@
 'use strict';
 const express = require('express');
 const mongoose = require('mongoose');
-const QuizStat = require('../models/quizStat');
+// const UserStats = require('../models/userStats');
+const UserStats = require('../models/UserStats');
 
 const router = express.Router();
 
@@ -15,7 +16,7 @@ router.get('/quiz',(req,res,next)=>{
     return next(err);
   }
 
-  QuizStat.findOne({userId})
+  UserStats.findOne({userId})
     .then(result=> {
       res.json(result.questions[result.head].question);
     })
@@ -37,7 +38,7 @@ router.get('/stats',(req,res,next)=>{
     return next(err);
   }
 
-  QuizStat.findOne({userId})
+  UserStats.findOne({userId})
     .then(stats =>{
       res.json({recurringCorrect: stats.recurringCorrect, totalQuestions:stats.totalQuestions,totalRight:stats.totalRight});
     })
@@ -69,7 +70,7 @@ router.post('/submit',(req,res,next)=>{
   let response;
   let correctAnswer;
 	
-  QuizStat.findOne({ userId })
+  UserStats.findOne({ userId })
     .then( userQuizData => {
       let quizStatsHead = userQuizData.head;
       let currentHead = userQuizData.head; // 0
@@ -105,7 +106,7 @@ router.post('/submit',(req,res,next)=>{
       currentNode.next = answeredQuestionIndex;
       userQuizData.totalQuestions++;
       correctAnswer = userQuizData.questions[currentHead].answer;
-      return QuizStat.findOneAndUpdate({ userId }, userQuizData);
+      return UserStats.findOneAndUpdate({ userId }, userQuizData);
     })
     .then( result => {
       response = {
