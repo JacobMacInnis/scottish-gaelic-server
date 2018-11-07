@@ -1,8 +1,7 @@
 'use strict';
 const express = require('express');
 const mongoose = require('mongoose');
-// const UserStats = require('../models/userStats');
-const UserStats = require('../models/UserStats');
+const UserStats = require('../models/userStats');
 
 const router = express.Router();
 

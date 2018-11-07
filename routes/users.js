@@ -3,8 +3,7 @@
 const express = require('express');
 
 const User = require('../models/user');
-const UserStats = require('../models/UserStats');
-// const UserStats = require('../models/Userstats');
+const UserStats = require('../models/userStats');
 const gaelic = require('./../db/seed/gaelic.json');
 
 const router = express.Router();
