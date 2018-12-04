@@ -7,6 +7,7 @@
 		<a href="https://think-programming-client.herokuapp.com/" target="_blank">Demo Here</a>
     </strong>
 </p>
+
 ## Summary
 Scottish Gaelic is a language learning app designed to improve your abilty to learn the beautiful Scottish language of Gaelic.  Using our specialized algorithm we will teach you words and phrases that will build your language skills and based on your abilities you will progress quickly and with a stronger grasp of Gaelic!
 
